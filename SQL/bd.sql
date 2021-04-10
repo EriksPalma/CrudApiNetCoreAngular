@@ -1,0 +1,15 @@
+CREATE TABLE TipoIdentificacion (
+    Id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+    Nombre VARCHAR (100),
+	Acronimo VARCHAR (5)
+);
+
+
+CREATE TABLE Usuarios (
+    Id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+    Nombre VARCHAR(50),
+    Apellido VARCHAR(50),
+	IdTipoIdentificacion UNIQUEIDENTIFIER FOREIGN KEY REFERENCES TipoIdentificacion(Id),
+	Contraseña VARCHAR (10),
+	Correo VARCHAR (50)
+);

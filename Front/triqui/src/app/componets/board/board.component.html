@@ -1,0 +1,41 @@
+<div class=" container-fluid" >
+<div class=" tablero">
+    <h1 class="titulo">Juego Triqui</h1>
+</div>
+
+<div class=" tablero">
+
+    <div>
+        <button id = "0" type="button" class="btn btn-info casilla" (click)="playGame(0)">{{value[0]}} </button>
+        <button id = "1" type="button" class="btn btn-info casilla " (click)="playGame(1)">{{value[1]}}</button>
+        <button id = "2" type="button" class="btn btn-info casilla" (click)="playGame(2)">{{value[2]}}</button>
+
+    </div>
+
+
+    <div>
+        <button id = "3" type="button" class="btn btn-info casilla" (click)="playGame(3)">{{value[3]}}</button>
+        <button id = "4" type="button" class="btn btn-info casilla" (click)="playGame(4)">{{value[4]}}</button>
+        <button id = "5" type="button" class="btn btn-info casilla" (click)="playGame(5)">{{value[5]}}</button>
+
+    </div>
+
+    <div>
+        <button id = "6" type="button" class="btn btn-info casilla" (click)="playGame(6)">{{value[6]}}</button>
+        <button id = "7" type="button" class="btn btn-info casilla" (click)="playGame(7)">{{value[7]}}</button>
+        <button id = "8" type="button" class="btn btn-info casilla" (click)="playGame(8)">{{value[8]}}</button>
+
+    </div>
+
+    <div class="botones">
+        <button type="button" class="btn btn-outline-succes btn-lg"
+        (click)="newGame()">Nuevo juego</button> 
+    </div>
+
+    <div *ngIf="winerStatus" >
+       <h3 class="win ">Ganaste ...</h3>
+    </div>
+
+    
+</div>
+</div>

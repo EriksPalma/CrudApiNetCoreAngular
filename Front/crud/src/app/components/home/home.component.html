@@ -1,0 +1,63 @@
+<div class="m-5">
+    <h1> App </h1>
+    <hr>
+
+    <button class="btn btn-outline-danger" (click)="logOut()"> Salir </button>
+</div>
+
+
+<div class="row">
+
+    <table class="table mt-3 animated fadeIn faster">
+
+        <thead class="thead-dark">
+
+            <tr class="text-center">
+                <th scope="col">Id</th>
+
+                <th scope="col">Nombre(s)</th>
+
+                <th scope="col">Apellido(s)</th>
+
+                <th scope="col">Tipo Identificación</th>
+
+                <th scope="col">Numero Identificación</th>
+
+                <th scope="col">Correo</th>
+
+                <th scope="col">Acción</th>
+
+
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr id="dataTable" *ngFor="let usuario of usuarios let i of index" class="text-justify">
+
+                <td>{{usuario.id}}</td>
+
+                <td>{{usuario.nombre}}</td>
+
+                <td>{{usuario.apellido}}</td>
+
+                <td>{{usuario.idTipoIdentificacion}}</td>
+
+                <td>{{usuario.numeroIdentificaion}}</td>
+
+                <td>{{usuario.correo}}</td>
+
+                <td>
+                    <button class="btn btn-info mr-1" (click)="setModal(usuario , usuario.id)">
+                            <i class="fa fa-pencil"></i>
+                    </button>
+                    <button class="btn btn-danger" (click)="deleteUser(usuario.id)">
+                        <i class="fa fa-trash"> </i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
