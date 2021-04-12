@@ -5,6 +5,7 @@ export class UserModel {
     nombre: string ;
     apellido: string ;
     idTipoIdentificacion: string ;
+    TipoIdentificacion: string ;
     numeroIdentificaion: string ;
     contrasena: string ;
     correo: string ;

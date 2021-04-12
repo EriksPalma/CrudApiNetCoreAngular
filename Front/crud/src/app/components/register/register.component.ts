@@ -1,4 +1,4 @@
-import { Component, OnInit, resolveForwardRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { Router } from '@angular/router';
@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = new UserModel();
+    this.user.idTipoIdentificacion = null;
 
     this.getIdentType();
 

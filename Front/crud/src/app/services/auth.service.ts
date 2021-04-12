@@ -94,4 +94,15 @@ export class AuthService {
   getUsers(): Observable<any>{
     return this.http.get(`${this.url}/Usuarios`);
   }
+
+  deleteUser( id: string ): Observable<UserModel> {
+
+    return this.http.delete< UserModel >(`${this.url}/Usuarios/${id}` );
+  }
+
+  editUser( user: UserModel ): Observable<any> {
+
+    return this.http.put(`${this.url}/Usuarios/${user.id}`, user );
+  }
+
 }

@@ -57,7 +57,23 @@ namespace CRUD.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(usuarios).State = EntityState.Modified;
+            if (usuarios.Contrasena is null)
+            {
+                var entry = _context.Entry(usuarios); 
+                entry.Property(u => u.Nombre).IsModified = true;
+                entry.Property(u => u.Apellido).IsModified = true;
+                entry.Property(u => u.Correo).IsModified = true;
+                entry.Property(u => u.IdTipoIdentificacion).IsModified = true;
+                entry.Property(u => u.NumeroIdentificaion).IsModified = true;
+
+            }
+            else {
+
+                _context.Entry(usuarios).State = EntityState.Modified;
+
+            }
+
+            
 
             try
             {
@@ -105,7 +121,7 @@ namespace CRUD.Controllers
                     return NotFound();
                 }
 
-                return CreatedAtAction("PostUsuariosLogin", new { id = user.Id, NumeroIdentificaion = user.NumeroIdentificaion, Nombre = user.Nombre, Apellido = user.Apellido });
+                return  new ObjectResult((new { id = user.Id, NumeroIdentificaion = user.NumeroIdentificaion, Nombre = user.Nombre, Apellido = user.Apellido })) { StatusCode = 200 };
 
             }
             catch (Exception e)
@@ -113,8 +129,6 @@ namespace CRUD.Controllers
                 string msg = e.InnerException is null ? e.Message : e.Message + " " +  e.InnerException.Message;
                 return BadRequest( msg );
             }
-
-            
         }
 
 
@@ -127,6 +141,8 @@ namespace CRUD.Controllers
             {
                 return NotFound();
             }
+
+            usuarios.Contrasena = null;
 
             _context.Usuarios.Remove(usuarios);
             await _context.SaveChangesAsync();

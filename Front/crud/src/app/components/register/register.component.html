@@ -27,7 +27,8 @@
                 <span *ngIf="singUpForm.submitted && singUpForm.controls['idTipoIdentificacion'].errors" class="text-danger animated fadeIn">El tipo de identificacion es obligatorio</span>
                 <div class="wrap-input100 m-b-16">
 
-                    <select class="form-control" name="idTipoIdentificacion" [disabled]="identType.length === 0" [ngModel]="user.idTipoIdentificacion" #idTipoIdentificacion required>
+                    <select class="wrap-input100 m-b-16" name="idTipoIdentificacion" [disabled]="identType.length === 0" [ngModel]="user.idTipoIdentificacion" #idTipoIdentificacion required>
+                        <option [ngValue]="null" [disabled]="true" >Tipo Identificacion</option>
                         <option *ngFor="let type of identType" [value]="type.id">
                             {{type.nombre}} -- ( {{ type.acronimo }} )
                         </option>
